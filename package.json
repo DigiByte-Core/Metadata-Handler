@@ -1,7 +1,7 @@
 {
-  "name": "cc-metadata-handler",
-  "version": "0.6.1",
-  "description": "Colored Coins metadata handler",
+  "name": "digiasset-metadata-handler",
+  "version": "0.7.0",
+  "description": "DigiAssets metadata handler",
   "main": "app.js",
   "dependencies": {
     "async": "^1.5.2",
@@ -26,14 +26,15 @@
   "keywords": [
     "torrent",
     "webtorrent",
-    "colored coins",
+    "digiassets",
     "bitcoin",
+    "digibyte",
     "metadata",
     "file sharing"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Colored-Coins/Metadata-Handler.git"
+    "url": "https://github.com/DigiByte-Core/Metadata-Handler.git"
   },
   "devDependencies": {
     "jsonfile": "^2.0.1",

@@ -9,7 +9,7 @@ var createTorrent = require('create-torrent')
 var hash = require('crypto-hashing')
 var _ = require('lodash')
 
-var FILEEXTENSION = '.ccm'
+var FILEEXTENSION = '.dam'
 
 var MetadataHandler = function (properties) {
   // Torrent setup
@@ -71,8 +71,8 @@ var createNewMetaDataFile = function (data, name, folder, cb) {
 var createTorrentFromMetaData = function (params, cb) {
   var opts = {
     name: params.fileName,              // name of the torrent (default = basename of `path`)
-    comment: 'Colored Coins Metadata',  // free-form textual comments of the author
-    createdBy: 'ColoredCoins-1.0.0',    // name and version of program used to create torrent
+    comment: 'DigiAssets Metadata',     // free-form textual comments of the author
+    createdBy: 'DigiAssets-1.0.0',      // name and version of program used to create torrent
     announceList: params.announce,      // custom trackers (array of arrays of strings) (see [bep12](http://www.bittorrent.org/beps/bep_0012.html))
     creationDate: params.creationDate,  // creation time in UNIX epoch format (default = now)
     private: params.private,            // is this a private .torrent? (default = false)
@@ -174,8 +174,8 @@ MetadataHandler.prototype.shareMetadata = function (infoHash, cb) {
     var dataFilePath = self.dataDir + '/' + dataFileName
     var opts = {
       name: dataFileName,                 // name of the torrent (default = basename of `path`)
-      comment: 'Colored Coins Metadata',  // free-form textual comments of the author
-      createdBy: 'ColoredCoins-1.0.0',    // name and version of program used to create torrent
+      comment: 'DigiAssets Metadata',     // free-form textual comments of the author
+      createdBy: 'DigiAssets-1.0.0',      // name and version of program used to create torrent
       announceList: self.announce,        // custom trackers (array of arrays of strings) (see [bep12](http://www.bittorrent.org/beps/bep_0012.html))
       urlList: self.urlList               // web seed urls (see [bep19](http://www.bittorrent.org/beps/bep_0019.html))
     }
