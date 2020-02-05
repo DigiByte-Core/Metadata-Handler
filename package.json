@@ -1,6 +1,6 @@
 {
   "name": "digiasset-metadata-handler",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "DigiAssets metadata handler",
   "main": "app.js",
   "dependencies": {
