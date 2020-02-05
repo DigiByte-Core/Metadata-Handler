@@ -1,7 +1,7 @@
-var MetadataHandler = require('../index.js')
-var fs = require('fs')
+const MetadataHandler = require('../index.js')
+const fs = require('fs')
 
-var properties = {
+const properties = {
   client: {
     // torrentPort: 49507,
     // dhtPort: 12679,
@@ -36,7 +36,7 @@ var properties = {
   }
 }
 
-var folders = []
+const folders = []
 folders.push(properties.folders.torrents)
 folders.push(properties.folders.data)
 folders.forEach(function (dir) {
@@ -45,9 +45,9 @@ folders.forEach(function (dir) {
   }
 })
 
-var handler = new MetadataHandler(properties)
+const handler = new MetadataHandler(properties)
 
-var metaData = {
+const metaData = {
   a: 'adaad',
   b: 'adaad',
   c: 'adaad',
@@ -62,13 +62,13 @@ var metaData = {
 
 describe('Torrent Creation', function () {
   this.timeout(0)
-  it('should return seed metadata', function (done) {
-    handler.addMetadata(metaData, function (err, result) {
+  it('should return seed metadata', (done) => {
+    handler.addMetadata(metaData, (err, result) => {
       if (err) throw err
-      handler.on('uploads/' + result.torrentHash.toString('hex'), function (torrent) {
+      handler.on('uploads/' + result.torrentHash.toString('hex'), (torrent) => {
         // console.log('uploads: ', torrent)
       })
-      handler.shareMetadata(result.torrentHash.toString('hex'), function (err, torrent) {
+      handler.shareMetadata(result.torrentHash.toString('hex'), (err, torrent) => {
         if (err) throw err
         // console.log('shareMetadata: ', torrent)
         return done()
@@ -77,13 +77,13 @@ describe('Torrent Creation', function () {
     })
   })
 
-  it('should download wrong data', function (done) {
+  it('should download wrong data', (done) => {
     var testMag = '2B12CE09236526A728C6974C0D89D52860E82DAA'
-    handler.on('downloads/' + testMag, function (torrent) {
+    handler.on('downloads/' + testMag, (torrent) => {
       // console.log('downloads: ', torrent)
     })
 
-    handler.on('error', function (error) {
+    handler.on('error', (error) => {
       // console.error(error)
       if (error) done()
     })
